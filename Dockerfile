@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bookworm
 LABEL Description="Use the Balena CLI to perform actions"
 
 
