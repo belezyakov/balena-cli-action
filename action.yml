@@ -1,6 +1,6 @@
-name: 'Balena CLI (Nebra fork)'
+name: 'Balena CLI (belezyakov fork)'
 branding:
-  color: "yellow"
+  color: "blue"
   icon: "upload-cloud"
 description: 'Continuously deliver your IoT applications to BalenaCloud or openBalena'
 inputs:
