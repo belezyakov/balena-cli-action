@@ -7,20 +7,18 @@ LABEL Description="Use the Balena CLI to perform actions"
 
 # Install the standalone balena-cli package
 RUN apt-get update && apt-get install -y \
-    curl \
-    unzip && \
+    curl && \
   cd /opt/ && \
-  export BALENA_RELEASE="v21.1.9" && \
+  export BALENA_RELEASE="v22.1.4" && \
   echo "Uses Balena CLI version: $BALENA_RELEASE" && \
-  curl -O -sSL "https://github.com/balena-io/balena-cli/releases/download/$BALENA_RELEASE/balena-cli-$BALENA_RELEASE-linux-x64-standalone.zip" && \
-  unzip balena-cli-*-linux-x64-standalone.zip && \
-  ln -s /opt/balena-cli/balena /usr/bin/ && \
+  curl -O -sSL "https://github.com/balena-io/balena-cli/releases/download/$BALENA_RELEASE/balena-cli-$BALENA_RELEASE-linux-x64-standalone.tar.gz" && \
+  tar -xzf balena-cli-*-linux-x64-standalone.tar.gz && \
+  ln -s /opt/balena/bin/balena /usr/bin/ && \
   apt-get purge -y \
-    curl \
-    unzip && \
+    curl && \
   apt-get autoremove -y && \
   rm -rf \
-    balena-cli-*-linux-x64-standalone.zip \
+    balena-cli-*-linux-x64-standalone.tar.gz \
     /var/lib/apt/lists/*
 
 # Copy entrypoint into `/opt`
